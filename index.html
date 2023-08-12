@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡SUPER OFERTAS!</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="style/style.css">
+</head>
+
+<body>
+
+    <div class="expo">
+        <div class="Independencia">
+            <div class="col-12">
+                <h1>¡Sean bienvenidos a la expo 2023!</h1>
+                <h1>De la Escuela Educación Técnica N°2 Independencia.</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="parte_superior">
+            <figure id="figure"><img src="img/Costura.jpg" alt=""></figure>
+            <figure id="figure"><img src="img/panaderia.jpg" alt=""></figure>
+            <div class="row">
+                <div class="col">
+                    <div class="tecnica">
+                        <h2>
+                            ¡Venga y aproveche!
+                        </h2>
+                        <h4>
+                            ¡No pierda esta oportunidad única de visitarnos y explorar nuestros talleres educativos!
+                            Obtenga un descuento en Panadería y Costurería para los días x/x/2023 y x/x/2023.
+                            Participantes limitados: 100 personas. ¡Esperamos verlo!</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="beneficios">Obtendrá beneficios en:</h1>
+            </div>
+            <div class="col-sm-6">
+                <div class="parte_inferior">
+                    <h1>‣X% de descuento en el área que usted eligió.</h1>
+                </div>
+            </div>
+            <div class="col">
+                <form name="formulario" method="post" action="datos.php">
+                    <div class="formulario" id="fo">
+                        <div class="col">
+                            <h4>Por favor, complete el formulario para poder participar.</h4>
+                            <input type="email" name="correo" id="correo" placeholder="correo" pattern=".+@gmail\.com"
+                                title="Ingrese (gmail.com) despues del @" required>
+                            <input type="text" name="dni" id="dni" placeholder="DNI" inputmode="numeric" pattern="\d*"
+                                minlength="8" maxlength="8" required>
+                            <select name="descuento" class="des">
+                                <option name="panaderia" value="panaderia">Panadería</option>
+                                <option name="costureria" value="costureria">Costurería</option>
+                            </select>
+                            <button type="submit" id="btn" name="bt" class="vos_sos_un_boton">Enviar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        (function () {
+
+            var formulario = document.getElementsByName('formulario')[0],
+                Elementos = formulario.elements,
+                boton = document.getElementById('btn');
+
+            var validarCorreo = function (e) {
+                if (formulario.correo.value == 0) {
+                    alert("Completa el campo correo");
+                    e.preventDefault();
+                }
+            };
+
+            var validarDni = function (e) {
+                if (formulario.dni.value == 0) {
+                    alert("Completa el campo DNI");
+                    e.preventDefault();
+                }
+            };
+
+            var validarDescuento = function (e) {
+                if (formulario.descuento.value == 0) {
+                    alert("Completa el campo descuento");
+                    e.preventDefault();
+                }
+            };
+
+            var validar = function (e) {
+                validarCorreo(e);
+                validarDni(e);
+                validarDescuento(e);
+            };
+
+
+
+            formulario.addEventListener("submit", validar);
+        }())
+
+
+
+    </script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
