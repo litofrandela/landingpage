@@ -41,13 +41,16 @@ body {
     font-size: 3em;
 }
 
+.maspequeño{
+    font-size: 1.2em;
+}
+
 figure {
     width: 250px;
     height: 175px;
     overflow: hidden;
     cursor: pointer;
     border-radius: 5px;
-
 }
 
 figure img {

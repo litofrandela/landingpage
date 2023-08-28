@@ -7,7 +7,7 @@
     <title>¡SUPER OFERTAS!</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -28,12 +28,15 @@
             <div class="row">
                 <div class="col">
                     <div class="tecnica">
-                        <h2><a href="https://expotecn2.000webhostapp.com/expotec/index.html#direccionycontactos">¡Venga y aproveche!</a>
+                        <h2>
+                            <a href="https://expotecn2.000webhostapp.com/expotec/index.html">¡Venga
+                                y aproveche!</a>
                         </h2>
                         <h4>
                             ¡No pierda esta oportunidad única de visitarnos y explorar nuestros talleres educativos!
-                            Obtenga un descuento en Panadería y Costurería para los días x/x/2023 y x/x/2023.
-                            Participantes limitados: 100 personas. ¡Esperamos verlo!</h4>
+                            Participe en un sorteo para obtener un descuento en Indumentaria y Panadería para los días
+                            13/9/2023 y 14/9/2023.
+                            ¡Esperamos su visita!</h4>
                     </div>
                 </div>
             </div>
@@ -46,21 +49,22 @@
             </div>
             <div class="col-md-6">
                 <div class="parte_inferior">
-                    <h1>‣X% de descuento en el área que usted eligió.</h1>
+                    <h1>20% de descuento en el área que usted eligió.</h1>
                 </div>
             </div>
             <div class="col">
                 <form name="formulario" method="post" action="datos.php">
                     <div class="formulario" id="fo">
                         <div class="col">
-                            <h4>Por favor, complete el formulario para poder participar.</h4>
-                            <input type="email" name="correo" id="correo" placeholder="correo" pattern=".+@gmail\.com"
-                                title="Ingrese (gmail.com) despues del @" required>
+                            <h4 class="maspequeño">Por favor, complete el formulario para poder participar en el sorteo.
+                            </h4>
+                            <input type="text" autocomplete="email" name="correo" id="correo" placeholder="correo"  pattern="[^@]+@[^@]+\.[a-zA-Z]{3,6}"
+                                title="Ingrese el @ o el .com" maxlength="60" required>
                             <input type="text" name="dni" id="dni" placeholder="DNI" inputmode="numeric" pattern="\d*"
                                 minlength="8" maxlength="8" required>
                             <select name="descuento" class="des">
                                 <option name="panaderia" value="panaderia">Panadería</option>
-                                <option name="costureria" value="costureria">Costurería</option>
+                                <option name="costureria" value="costureria">Indumentaria</option>
                             </select>
                             <button type="submit" id="btn" name="bt" class="vos_sos_un_boton">Enviar</button>
                         </div>
