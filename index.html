@@ -2,79 +2,111 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>¡SUPER OFERTAS!</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="js/menu.js">
+  <link rel="shortcut icon" href="img/logo.jpg" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <title>Goldens Ware</title>
 </head>
 
-<body>
-
-    <div class="expo">
-        <div class="Independencia">
-            <div class="col-12">
-                <h1>¡Sean bienvenidos a la expo 2023!</h1>
-                <h1>De la Escuela Educación Técnica N°2 Independencia.</h1>
-            </div>
+<body class="cuerpo">
+  <!--Cabeza-->
+  <div class="centrar">
+    <img src="img/logodelaempresa.png" class="logo" id="logo">
+  </div>
+  <header id="cabe">
+    <button id="abrir" class="abrir-menu"><img src="img/menu.svg" alt=""></button>
+    <nav class="no_ver" id="no_ver">
+      <button class="cerrar-menu" id="cerrar"><img src="img/cerrar.svg" alt=""></button>
+      <ul class="sacar">
+        <li class="bord">
+          <a class="color" href="#objetos" id="c">Productos</a>
+        </li>
+        <div class="espacio">
+          <li class="bord">
+            <a class="color" href="#formulario" id="ce">Formulario</a>
+          </li>
         </div>
-    </div>
+        <div class="espacio">
+          <li class="bord">
+            <a class="color" href="#ultimo" id="cer">Contactos/Nosotros</a>
+          </li>
+        </div>
+      </ul>
+    </nav>
+  </header>
+  <!--Fin de cabeza-->
+  <!--Cards-->
 
-    <div class="container">
-        <div class="parte_superior">
-            <figure id="figure"><img src="img/Costura.jpg" alt=""></figure>
-            <figure id="figure"><img src="img/panaderia.jpg" alt=""></figure>
-            <div class="row">
-                <div class="col">
-                    <div class="tecnica">
-                        <h2>
-                            <a href="https://expotecn2.000webhostapp.com/expotec/index.html">¡Venga
-                                y aproveche!</a>
-                        </h2>
-                        <h4>
-                            ¡No pierda esta oportunidad única de visitarnos y explorar nuestros talleres educativos!
-                            Participe en un sorteo para obtener un descuento en Indumentaria y Panadería para los días
-                            13/9/2023 y 14/9/2023.
-                            ¡Esperamos su visita!</h4>
+  <div class="container" id="objetos">
+    <div class="row">
+             <?php
+      require_once "conexion.php";
+
+        // Paso 2: Consultar los datos
+        $consulta = "SELECT * FROM partes";
+        $resultado = mysqli_query($conn, $consulta);
+
+        // Paso 3: Iterar sobre los resultados y generar tarjetas de Bootstrap
+        while ($fila = mysqli_fetch_assoc($resultado)) {
+            ?>
+                <div class="card">
+                    <img src="<?php echo $fila['imagenes']; ?>" id="achicar" class="card-img-top" alt="...">
+                    <div class="texto" name="D1">
+                        <h4 id="O1"><?php echo $fila['objeto']; ?></h4>
+                        <p  name="D1"><?php echo $fila['detalle']; ?><br> Precio:
+                        <input type="text" class="text2" id="precio" value="<?php echo $fila['precio']; ?>" readonly>
+                        </p>
+                        <input type="submit" id="tamano" value="Comprar" class="texto">
                     </div>
                 </div>
-            </div>
-        </div>
+            <?php
+        }
+
+        // Paso 4: Cerrar la conexión
+        mysqli_close($conn);
+        ?>
     </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <h1 class="beneficios">Obtendrá beneficios en:</h1>
-            </div>
-            <div class="col-md-6">
-                <div class="parte_inferior">
-                    <h1>20% de descuento en el área que usted eligió.</h1>
-                </div>
-            </div>
+    <div class="row c" id="formulario">
+      <div class="col">
+        <button class="desaparecer" id="aparecer">Formulario</button>
+        <div class="fx" id="foe">
+          <button class="desaparecer" id="cere">Cerrar</button>
+          <div class="formulario">
             <div class="col">
-                <form name="formulario" method="post" action="datos.php">
-                    <div class="formulario" id="fo">
-                        <div class="col">
-                            <h4 class="maspequeño">Por favor, complete el formulario para poder participar en el sorteo.
-                            </h4>
-                            <input type="text" autocomplete="email" name="correo" id="correo" placeholder="correo"  pattern="[^@]+@[^@]+\.[a-zA-Z]{3,6}"
-                                title="Ingrese el @ o el .com" maxlength="60" required>
-                            <input type="text" name="dni" id="dni" placeholder="DNI" inputmode="numeric" pattern="\d*"
-                                minlength="8" maxlength="8" required>
-                            <select name="descuento" class="des">
-                                <option name="panaderia" value="panaderia">Panadería</option>
-                                <option name="costureria" value="costureria">Indumentaria</option>
-                            </select>
-                            <button type="submit" id="btn" name="bt" class="vos_sos_un_boton">Enviar</button>
-                        </div>
-                    </div>
-                </form>
+              <h4 class="maspequeño">Por favor, complete el formulario si quiere contactarnos.
+              </h4>
+              <form name="formulario" method="post" action="compradores.php">
+                <input type="text" name="dni" id="dni" placeholder="DNI" inputmode="numeric" pattern="\d*" minlength="8"
+                  maxlength="8" required>"
+                <input type="text" name="nombre" id="nombre" placeholder="Nombre" required>
+                <input type="text" name="apellido" id="apellido" placeholder="Apellido" required>
+                <input type="text" autocomplete="email" name="correo" id="correo" placeholder="Correo"
+                  pattern="[^@]+@[^@]+\.[a-zA-Z]{3,6}" title="Ingrese el @ o el .com" maxlength="60" required>
+                <input type="submit" id="btn" name="bt" class="eni" placeholder="Enviar">
+              </form>
             </div>
+          </div>
         </div>
+      </div>
     </div>
+    <div class="row c">
+      <footer class="pie" id="ultimo">
+        <img src="img/direccion.png" class="imguno">
+        <p class="tesa">Salta 225</p>
+        <img src="img/contactos.png" class="imgdos">
+        <p class="aset">345 9 345 210-3452</p>
+        <img src="img/correo.png" class="imgdos">
+        <p class="aset">345 9 345 210-3452</p>
+      </footer>
+    </div>
+  </div>
 
-    <script>
+
+<script>
         (function () {
 
             var formulario = document.getElementsByName('formulario')[0],
@@ -95,9 +127,16 @@
                 }
             };
 
-            var validarDescuento = function (e) {
-                if (formulario.descuento.value == 0) {
-                    alert("Completa el campo descuento");
+            var validarNombre = function (e) {
+                if (formulario.nombre.value == 0) {
+                    alert("Completa el campo nombre");
+                    e.preventDefault();
+                }
+            };
+            
+            var validarApellido = function (e) {
+                if (formulario.apellido.value == 0) {
+                    alert("Completa el campo apellido");
                     e.preventDefault();
                 }
             };
@@ -105,7 +144,8 @@
             var validar = function (e) {
                 validarCorreo(e);
                 validarDni(e);
-                validarDescuento(e);
+                validarNombre(e);
+                validarApellido(e);
             };
 
 
@@ -118,13 +158,16 @@
     </script>
 
 
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
-        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
-        crossorigin="anonymous"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
-        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
-        crossorigin="anonymous"></script>
+  <script src="js/menu.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+    integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+    integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+    crossorigin="anonymous"></script>
+
 </body>
 
 </html>
